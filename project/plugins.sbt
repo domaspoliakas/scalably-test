@@ -1,5 +1,5 @@
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.5.0")
-addSbtPlugin("ch.epfl.scala" % "sbt-scalajs-bundler" % "0.20.0")
+addSbtPlugin("ch.epfl.scala" % "sbt-web-scalajs-bundler" % "0.20.0")
 resolvers += MavenRepository(
   "sonatype-s01-snapshots",
   "https://s01.oss.sonatype.org/content/repositories/snapshots"
