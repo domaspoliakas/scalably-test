@@ -7,14 +7,20 @@ Global / stRemoteCache := RemoteCache.Rsync(
 
 lazy val root = project
   .in(file("."))
-  .settings(
-    Compile / npmDependencies ++= Seq(
-      "uuid" -> "8.3.0",
-      "@types/uuid" -> "8.3.0"
+
+lazy val submodule =
+  project
+    .in(file("submodule"))
+    .settings(
+      scalaJSUseMainModuleInitializer := true,
+      npmDependencies in Compile ++= Seq(
+        "uuid" -> "8.3.0",
+        "@types/uuid" -> "8.3.0"
+      ),
+      useYarn := true
     )
-  )
-  .enablePlugins(
-    ScalablyTypedConverterPlugin,
-    ScalaJSPlugin,
-    ScalaJSBundlerPlugin
-  )
+    .enablePlugins(
+      ScalablyTypedConverterPlugin,
+      ScalaJSPlugin,
+      ScalaJSBundlerPlugin
+    )
